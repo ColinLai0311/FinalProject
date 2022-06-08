@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <script src="../_js/jquery-3.6.0.js"></script>
+    <script src="/js/jquery.min.js"></script>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
     <meta name="description" content="">
@@ -1311,12 +1311,30 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.mobile-menu.min.js"></script>
     <script>
-        for(var x=1;x<13;x++){
-            $('#test123').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+        let bestSaleList=[{
+            id: "1",
+            img: "products-images/product6.jpg",
+            ProductLink: "自己生",
+            ProductName: "Lorem ipsum dolor",
+            ProductPrice: "1111",
+        }, {
+            id: "2",
+            img: "products-images/product6.jpg",
+            ProductLink: "product_detail.html",
+            ProductName: "Lorem ipsum dolor",
+            ProductPrice: "1111",
+        }];
+        $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/ProductServlet?pdaction=Select1", function (e) {
+            bestSaleList = JSON.parse(e);
+            console.log(typeof e);
+            $.each(bestSaleList, (index, products) => { 
+                console.log(index);
+                if(products.productCatalog=="家電"){
+                    $('#test123').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                         <div class="item-inner">
                                             <div class="item-img">
                                                 <div class="item-img-info"><a href="#" title="Lorem ipsum dolor"
-                                                        class="product-image"><img src="colinimage/lamp/${x}01.jpg"
+                                                        class="product-image"><img src="${products.productImg1}"
                                                             alt="Lorem ipsum dolor" width="100" height="200"></a>
                                                     <div class="new-label new-top-left">New</div>
                                                     <div class="box-hover">
@@ -1333,7 +1351,7 @@
                                             </div>
                                             <div class="item-info">
                                                 <div class="info-inner">
-                                                    <div class="item-title"><a id="productName1" title="Lorem ipsum dolor" href="#">調香融蠟夜燈</a></div>
+                                                    <div class="item-title"><a id="productName1" title="Lorem ipsum dolor" href="#">${products.productName}</a></div>
                                                     <div class="item-content">
                                                         <div class="rating">
                                                             <div class="ratings">
@@ -1350,7 +1368,7 @@
                                                               
                                                                 <p class="special-price"><span
                                                                         class="price-label">Special Price</span><span
-                                                                        class="price" id="productPrice1">$90.00 </span></p>
+                                                                        class="price" id="productPrice1">${products.productPrice} </span></p>
                                                             </div>
                                                         </div>
                                                         <div class="action"><button class="button btn-cart"
@@ -1361,9 +1379,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </li> `);
-        }
-        
+                                    </li> `)
+                }
+           
+                                });
+        });
 
 
 
@@ -1371,35 +1391,7 @@
 
 
 
-    <!-- <script>
-        $(function () {
-
-            //一開始就會從後端要資料庫的標題跟價錢
-            $.get("/product", function (e) {
-                productList = JSON.parse(e);
-
-                $.each(product, function (key, obj) {
-
-                    $("#productName1").html(obj.product_name);
-                    $("#productPrice1").html(obj.product_price);
-                })
-            })
-
-        }); 
-
-
-        //這個跟資料庫拿我要的成功了
-        // $("#change").on("click", function () {
-        //     $.get("/productList/" + 2, function (e) {
-        //         data = JSON.parse(e);
-        //         $.each(data, function (key, obj) {
-        //             $("#productName1").html(obj.product_name);
-        //             $("#productPrice1").html(obj.product_price);
-        //         })
-        //     })
-        // });
-
-   </> -->
+    
    
 </body>
 
