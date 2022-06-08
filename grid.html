@@ -576,7 +576,7 @@
                             <div class="slider-items-products">
                                 <!-- 輪播 -->
                                 <div id="category-desc-slider" class="product-flexslider hidden-buttons">
-                                    <div class="slider-items slider-width-col1 owl-carousel owl-theme">
+                                    <div class="slider-items slider-width-col1 owl-carousel owl-theme" id="carouselColin">
                                         <div class="item"><a href="#"><img alt="" src="colinimage/nick/nick02.jpg" width="500" height="400"></a>
                                             <!-- <div class="cat-img-title cat-bg cat-box">
                                                 <div class="small-tag">Mega Sale</div>
@@ -624,8 +624,8 @@
                                 </div>
                             </div>
                             <div class="category-products">
-                                <ul class="products-grid">
-                                    <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <ul class="products-grid" id="test1">
+                                    <!-- <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                         <div class="item-inner">
                                             <div class="item-img">
                                                 <div class="item-img-info"><a href="#" title="Lorem ipsum dolor"
@@ -1204,7 +1204,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li> -->
                                     
                                 </ul>
                             </div>
@@ -1905,6 +1905,88 @@
     <script src="js/common.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.mobile-menu.min.js"></script>
+    <script>
+        let bestSaleList=[{
+            id: "1",
+            img: "products-images/product6.jpg",
+            ProductLink: "自己生",
+            ProductName: "Lorem ipsum dolor",
+            ProductPrice: "1111",
+        }, {
+            id: "2",
+            img: "products-images/product6.jpg",
+            ProductLink: "product_detail.html",
+            ProductName: "Lorem ipsum dolor",
+            ProductPrice: "1111",
+        }];
+        $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/ProductServlet?pdaction=Select1", function (e) {
+            bestSaleList = JSON.parse(e);
+            console.log(typeof e);
+            $.each(bestSaleList, (index, products) => { 
+                console.log(index);
+                if(products.productCatalog=="配件"){
+                    $('#test1').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <div class="item-inner">
+                                            <div class="item-img">
+                                                <div class="item-img-info"><a href="#" title="Lorem ipsum dolor"
+                                                        class="product-image"><img src="${products.productImg1}"
+                                                            alt="Lorem ipsum dolor" width="100" height="200"></a>
+                                                    <div class="new-label new-top-left">New</div>
+                                                    <div class="box-hover">
+                                                        <ul class="add-to-links">
+                                                            <li><a class="link-quickview" href="quick_view.html">Quick
+                                                                    View</a></li>
+                                                            <li><a class="link-wishlist"
+                                                                    href="wishlist.html">Wishlist</a></li>
+                                                            <li><a class="link-compare" href="compare.html">Compare</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item-info">
+                                                <div class="info-inner">
+                                                    <div class="item-title"><a id="productName1" title="Lorem ipsum dolor" href="#">${products.productName}</a></div>
+                                                    <div class="item-content">
+                                                        <div class="rating">
+                                                            <div class="ratings">
+                                                                <div class="rating-box">
+                                                                    <div class="rating width80"></div>
+                                                                </div>
+                                                                <p class="rating-links"><a href="#">1 Review(s)</a><span
+                                                                        class="separator">|</span><a href="#">Add
+                                                                        Review</a></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-price">
+                                                            <div class="price-box">
+                                                              
+                                                                <p class="special-price"><span
+                                                                        class="price-label">Special Price</span><span
+                                                                        class="price" id="productPrice1">${products.productPrice} </span></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="action"><button class="button btn-cart"
+                                                                type="button"
+                                                                data-original-title="Add to Cart"><span>Add to
+                                                                    Cart</span></button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li> `)
+                }
+           
+                                });
+        });
+
+
+
+    </script>
+
+
+     
+
 </body>
 
 </html>
