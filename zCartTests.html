@@ -23,17 +23,80 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
         rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
 
-        <style>
-            #sortbySize{
-                font-size:16px;
-            }
-        </style>    
+        .p-num1,
+        .p-num2 {
+            width: 170px;
+            margin: 20px;
+        }
+
+        a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #e33333;
+        }
+
+        .decrement,
+        .increment {
+            float: left;
+            border: 1px solid #cacbcb;
+            height: 18px;
+            line-height: 18px;
+            padding: 1px 0;
+            width: 16px;
+            text-align: center;
+            color: #666;
+            margin: 0;
+            background: #fff;
+            margin-left: -1px;
+        }
+
+        .itxt {
+            float: left;
+            border: 1px solid #cacbcb;
+            width: 42px;
+            height: 18px;
+            line-height: 18px;
+            text-align: center;
+            padding: 1px;
+            margin: 0;
+            margin-left: -1px;
+            font-size: 12px;
+            font-family: verdana;
+            color: #333;
+            -webkit-appearance: none;
+        }
+
+        .p-sum {
+            font-weight: 700;
+            width: 145px;
+        }
+
+        .p-num {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+
+    <style>
+        #sortbySize {
+            font-size: 16px;
+        }
+    </style>
 </head>
 
 <body class="category-page">
     <div id="page">
-        
+
         <header>
             <div class="header-container">
                 <div class="container">
@@ -63,19 +126,20 @@
                                     <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"><a
                                             href="#"><span class="totalCount">0</span></a></div>
                                     <div id="addToCart">
-                                        <div class="top-cart-content" >
+                                        <div class="top-cart-content">
                                             <div class="block-subtitle">
-                                                <div class="top-subtotal" ><span class="totalCount">0 </span><span>樣商品</span> <span class="price" id="totalPrice">$0</span>
+                                                <div class="top-subtotal"><span class="totalCount">0
+                                                    </span><span>樣商品</span> <span class="price"
+                                                        id="totalPrice">$0</span>
                                                 </div>
                                             </div>
                                             <div id="naka"></div>
                                             <div class="actions"><button class="btn-checkout" title="Checkout"
-                                                    type="button"
-                                                    onclick="location.href='checkout.html';"  ><span >結 帳</span></button>
-                                                    
-                                                    <a
-                                                    href="shopping_cart.html" class="view-cart"><span >前往購物車</span></a>
-                                                    </div>
+                                                    type="button" onclick="location.href='checkout.html';"><span>結
+                                                        帳</span></button>
+
+                                                <a href="shopping_cart.html" class="view-cart"><span>前往購物車</span></a>
+                                            </div>
 
                                         </div>
                                     </div>
@@ -539,21 +603,24 @@
                                 <!-- 輪播 -->
                                 <div id="category-desc-slider" class="product-flexslider hidden-buttons">
                                     <div class="slider-items slider-width-col1 owl-carousel owl-theme">
-                                        <div class="item"><a href="#"><img alt="" src="colinimage/lamp/101.jpg" width="500" height="400"></a>
+                                        <div class="item"><a href="#"><img alt="" src="colinimage/lamp/101.jpg"
+                                                    width="500" height="400"></a>
                                             <!-- <div class="cat-img-title cat-bg cat-box">
                                                 <div class="small-tag">Mega Sale</div>
                                                 <h2 class="cat-heading">Special fruits</h2>
                                                 <p>Take me out for some fresh of fruit</p>
                                             </div> -->
                                         </div>
-                                        <div class="item"><a href="#"><img alt="" src="colinimage/lamp/201.jpg" width="500" height="400"></a>
+                                        <div class="item"><a href="#"><img alt="" src="colinimage/lamp/201.jpg"
+                                                    width="500" height="400"></a>
                                             <!-- <div class="cat-img-title cat-bg cat-box">
                                                 <div class="small-tag">New taste</div>
                                                 <h2 class="cat-heading">Organic Fruits</h2>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                             </div> -->
                                         </div>
-                                        <div class="item"><a href="#"><img alt="" src="colinimage/lamp/401.jpg" width="500" height="400"></a>
+                                        <div class="item"><a href="#"><img alt="" src="colinimage/lamp/401.jpg"
+                                                    width="500" height="400"></a>
                                             <!-- <div class="cat-img-title cat-bg cat-box">
                                                 <div class="small-tag">New taste</div>
                                                 <h2 class="cat-heading">Organic Fruits</h2>
@@ -566,34 +633,35 @@
                         </div>
                         <!-- 右邊內頁 -->
                         <article class="col-main">
-                            <h2 class="page-heading"><span class="page-heading-title">質 感 燈 飾</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                 <span id="sortbySize">篩 選:</span>
-                                  
+                            <h2 class="page-heading"><span class="page-heading-title">質 感 燈 飾</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span id="sortbySize">篩 選:</span>
+
                             </h2>
                             <!-- 右邊下面 -->
-                            
+
                             <div class="display-product-option">
-                                 <div class="col-lg-3 col-md-10">
-                                        <div id="sort-by"><label class="left"></label>
-                                            <ul>
-                                                <li>篩 選:<span class="right-arrow"></span>
-                                                    <ul>
-                                                        <li><a onclick="priceH2L()">價格:高➜低</a></li>
-                                                        <li><a onclick="priceL2H()">價格:低➜高</a></li>
-                                                        <li><a href="#">Position</a></li>
-                                                    </ul>
-                                                    
-                                                </li>
-                                                
-                                            </ul>
-                                        </div>
+                                <div class="col-lg-3 col-md-10">
+                                    <div id="sort-by"><label class="left"></label>
+                                        <ul>
+                                            <li>篩 選:<span class="right-arrow"></span>
+                                                <ul>
+                                                    <li><a onclick="priceH2L()">價格:高➜低</a></li>
+                                                    <li><a onclick="priceL2H()">價格:低➜高</a></li>
+                                                    <li><a href="#">Position</a></li>
+                                                </ul>
+
+                                            </li>
+
+                                        </ul>
                                     </div>
-                            
-                               
+                                </div>
+
+
                             </div>
                             <div class="category-products">
-                                <ul class="products-grid" id="test123">    
+                                <ul class="products-grid" id="test123">
                                 </ul>
                             </div>
                             <!-- <div class="toolbar">
@@ -652,59 +720,63 @@
                                 <div class="block-title">目錄</div>
                                 <div class="box-content box-category">
                                     <ul>
-                                        <li class="mega-menu"><a  href="grid.html">飾品</a></li>
-                                        <li class="mega-menu"><a  href="grid2.html">質感燈飾</a></li>
-                                        <li class="mega-menu"><a  href="grid.html">服飾</a></li>
-                                        <li class="mega-menu"><a  href="grid.html">日常用品</a></li>
-                                        <li class="mega-menu"><a  href="grid.html">居家收納</a></li>
-                                        <li class="mega-menu"><a  href="grid.html">外出旅行</a></li>
+                                        <li class="mega-menu"><a href="grid.html">飾品</a></li>
+                                        <li class="mega-menu"><a href="grid2.html">質感燈飾</a></li>
+                                        <li class="mega-menu"><a href="grid.html">服飾</a></li>
+                                        <li class="mega-menu"><a href="grid.html">日常用品</a></li>
+                                        <li class="mega-menu"><a href="grid.html">居家收納</a></li>
+                                        <li class="mega-menu"><a href="grid.html">外出旅行</a></li>
                                     </ul>
                                 </div>
                                 <!--box-content box-category-->
                             </div>
                             <div class="hot-banner"><img alt="banner" src="colinimage/rakuten.png"></div>
                             <div class="block block-layered-nav">
-                                <div class="block-title"><img src="colinimage/sagasu.jfif" width="20" height="30">條件篩選</div>
-                           
-                                   
-                                  
+                                <div class="block-title"><img src="colinimage/sagasu.jfif" width="20" height="30">條件篩選
+                                </div>
+
+
+
                                 <div class="block-content">
                                     <p class="block-subtitle"></p>
-                                    <div class="price-filter" style="text-align:center;"><label ><strong>價格</strong></label>
+                                    <div class="price-filter" style="text-align:center;">
+                                        <label><strong>價格</strong></label>
                                         <ul>
                                             <!-- <li><input  class="custom-control-input" id="below-50"><label
                                                     class="custom-control-label" for="below-20">below-$50</label></li> -->
-                                           <li style="text-align:center;">
-                                                <input type="number" style="width:80px;" maxlength="5" min="0"   step="100" placeholder="輸入金額" id="inputMi">    
+                                            <li style="text-align:center;">
+                                                <input type="number" style="width:80px;" maxlength="5" min="0"
+                                                    step="100" placeholder="輸入金額" id="inputMi">
                                                 <b>~</b>
-                                                <input type="number" style="width:80px;" maxlength="5" min="0"   step="100" placeholder="輸入金額" id="inputMa">    
+                                                <input type="number" style="width:80px;" maxlength="5" min="0"
+                                                    step="100" placeholder="輸入金額" id="inputMa">
 
-                                           </li>
-                                           
+                                            </li>
+
 
                                         </ul>
-                                   
-                                        
+
+
                                         <ul>
                                             <li> </li><br>
                                             <li style="text-align:center;">
-                                             <input type="button" value="清除全部" onclick="clearText()"><br>
-                                                
+                                                <input type="button" value="清除全部" onclick="clearText()"><br>
+
                                             </li>
                                             <li> </li><br>
                                             <li>
-                                             <input type="button" value="套用條件" onclick="doText()"><br>
- 
+                                                <input type="button" value="套用條件" onclick="doText()"><br>
+
                                             </li>
-                                         </ul>
+                                        </ul>
                                     </div>
-                                   
-                                    
+
+
 
                                 </div>
-                            </div>  
                             </div>
-                            
+                    </div>
+
         </section><!-- Main Container End -->
         <!-- Footer -->
         <footer>
@@ -1118,8 +1190,8 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.mobile-menu.min.js"></script>
     <script>
-        var products ;
-        var bestSaleList=[{
+        var products;
+        var bestSaleList = [{
             id: "1",
             img: "products-images/product6.jpg",
             ProductLink: "自己生",
@@ -1135,13 +1207,13 @@
         $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/ProductServlet?pdaction=Select1", function (e) {
             bestSaleList = JSON.parse(e);
             console.log(typeof e);
-            var count=1;
-            $.each(bestSaleList, (index, products) => { 
-                
-                if(products.productCatalog=="家電"){
+            var count = 1;
+            $.each(bestSaleList, (index, products) => {
+
+                if (products.productCatalog == "家電") {
                     console.log(index);
-                    
-                   
+
+
                     $('#test123').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                         <div class="item-inner">
                                             <div class="item-img">
@@ -1184,25 +1256,29 @@
                                             </div>
                                         </div>
                                     </li> `)
-                                    return products;    
-                                    
+                    return products;
+
                 }
-           
-                                });
+
+            });
         });
 
-        var all=0;
-        var count=0;
-        var suji=1;
+        var all = 0;
+        var count = 0;
+        var suji = 1;
+        var n=1;
         function show(index) {
-          var totalPriceS=  this.bestSaleList[index].productPrice;
-          var totalPriceI=parseInt(totalPriceS);
-            console.log(typeof totalPriceI);
-            all+=totalPriceI;
+
+
+            var totalPriceS = this.bestSaleList[index].productPrice;
+            var totalPriceI = parseInt(totalPriceS);
+           
+            console.log( n)
+            all += totalPriceI;
             count++;
 
-            
-                $("#naka").append(` <ul class="mini-products-list" id="cart-sidebar" >
+
+            $("#naka").append(` <ul class="mini-products-list" id="cart-sidebar" >
                                                <li class="item">
                                                    <div class="item-inner"><a class="product-image"
                                                            title="Lorem ipsum dolor" href="#l"><img
@@ -1215,45 +1291,84 @@
                                                                        class="icon-pencil"></i><span
                                                                        class="hidden">Edit item</span></a></div>
                                                            <p class="product-name"><a href="#">${this.bestSaleList[index].productName}</a>
-                                                           </p><strong id="suji">1</strong>x <span class="price">$${this.bestSaleList[index].productPrice}</span>
+                                                           </p><div class="p-num1">
+                                                            <div class="quantity-form">
+                                                                <a href="javascript:;" class="decrement">-</a>
+                                                                    <input type="text" class="itxt" value="1">
+                                                                    <a href="javascript:;" class="increment">+</a>
+                                                                        </div>
+                                                                        </div> <span class="price">$${this.bestSaleList[index].productPrice}</span>
                                                        </div>
                                                    </div>
                                                </li>
                                               
                                            </ul>
                                         `)
-           
-            
-       
-            
-       
-       
-           $('#totalPrice').html("$"+all);                      
-           $('.totalCount').html(count);
 
-}
+
+            $('#totalPrice').html("$" + all);
+            $('.totalCount').html(count);
+
+
+
+            $(".increment").click(function () {
+                
+                //得到當前兄弟文字框的值
+                n = $(this).siblings(".itxt").val();
+                n++;
+                $(this).siblings(".itxt").val(n);
+                console.log( n)
+                return n;
+
+            })
+            $(".decrement").click(function () {
+                //得到當前兄弟文字框的值
+                n = $(this).siblings(".itxt").val();
+                //當文字框的值減到1時就不再執行n--及後面的程式碼
+                if (n == 1) {
+                    return false;
+                }
+                n--;
+                $(this).siblings(".itxt").val(n);
+                return n;
+            })
+
+
+
+
+
+
+
+
+        }
+
 
 
 
     </script>
-<!-- 高到低 -->
-<script>
-    function priceH2L(){
-        $('#test123').empty();
-        // location.reload();
-        $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/ProductServlet?pdaction=Select1", function (e) {
-            priceH2L = JSON.parse(e);
-             // priceH2L.sort((a, b) => parseFloat(b.ProductPrice) - parseFloat(a.ProductPrice));
-            priceH2L.sort(function(a,b){
-                return b.productPrice-a.productPrice;
-                
-            })
-            
-            console.log(priceH2L);
-             $.each(priceH2L, (index, products) => { 
-                if(products.productCatalog=="家電"){
-                  
-                    $('#test123').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+
+
+
+
+
+    <!-- 高到低 -->
+    <script>
+        function priceH2L() {
+            $('#test123').empty();
+            // location.reload();
+            $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/ProductServlet?pdaction=Select1", function (e) {
+                priceH2L = JSON.parse(e);
+                // priceH2L.sort((a, b) => parseFloat(b.ProductPrice) - parseFloat(a.ProductPrice));
+                priceH2L.sort(function (a, b) {
+                    return b.productPrice - a.productPrice;
+
+                })
+
+                console.log(priceH2L);
+                $.each(priceH2L, (index, products) => {
+                    if (products.productCatalog == "家電") {
+
+                        $('#test123').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                         <div class="item-inner">
                                             <div class="item-img">
                                                 <div class="item-img-info"><a href="#" title="Lorem ipsum dolor"
@@ -1294,33 +1409,33 @@
                                             </div>
                                         </div>
                                     </li> `)
-                               
-                }
-           
-                                });
-        });
-       
-    }
 
-</script>
-<!-- 低到高 -->
-<script>
-    function priceL2H(){
-        $('#test123').empty();
-        // location.reload();
-        $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/ProductServlet?pdaction=Select1", function (e) {
-            priceH2L = JSON.parse(e);
-             // priceH2L.sort((a, b) => parseFloat(b.ProductPrice) - parseFloat(a.ProductPrice));
-            priceH2L.sort(function(a,b){
-                return a.productPrice-b.productPrice;
-                
-            })
-            
-            console.log(priceH2L);
-             $.each(priceH2L, (index, products) => { 
-                if(products.productCatalog=="家電"){
-                  
-                    $('#test123').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                    }
+
+                });
+            });
+
+        }
+
+    </script>
+    <!-- 低到高 -->
+    <script>
+        function priceL2H() {
+            $('#test123').empty();
+            // location.reload();
+            $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/ProductServlet?pdaction=Select1", function (e) {
+                priceH2L = JSON.parse(e);
+                // priceH2L.sort((a, b) => parseFloat(b.ProductPrice) - parseFloat(a.ProductPrice));
+                priceH2L.sort(function (a, b) {
+                    return a.productPrice - b.productPrice;
+
+                })
+
+                console.log(priceH2L);
+                $.each(priceH2L, (index, products) => {
+                    if (products.productCatalog == "家電") {
+
+                        $('#test123').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                         <div class="item-inner">
                                             <div class="item-img">
                                                 <div class="item-img-info"><a href="#" title="Lorem ipsum dolor"
@@ -1361,41 +1476,41 @@
                                             </div>
                                         </div>
                                     </li> `)
-                               
-                }
-           
-                                });
-        });
-       
-    }
 
-</script>
-<script>
-    function clearText(){
-        document.getElementById('inputMi').value="";
-        document.getElementById('inputMa').value="";
-      
-    }
+                    }
 
-</script>
-<script>
-    function doText(){
-        $('#test123').empty();
-        // location.reload();
-        $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/ProductServlet?pdaction=Select1", function (e) {
-            priceH2L = JSON.parse(e);
-             // priceH2L.sort((a, b) => parseFloat(b.ProductPrice) - parseFloat(a.ProductPrice));
-            priceH2L.sort(function(a,b){
-                return a.productPrice-b.productPrice;
-                
-            })
-            var mini=document.getElementById('inputMi').value;
-            var max=document.getElementById('inputMa').value;
-            
-             $.each(priceH2L, (index, products) => { 
-                if(products.productCatalog=="家電"){
-                    if(products.productPrice>=mini && products.productPrice<=max){
-                    $('#test123').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                });
+            });
+
+        }
+
+    </script>
+    <script>
+        function clearText() {
+            document.getElementById('inputMi').value = "";
+            document.getElementById('inputMa').value = "";
+
+        }
+
+    </script>
+    <script>
+        function doText() {
+            $('#test123').empty();
+            // location.reload();
+            $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/ProductServlet?pdaction=Select1", function (e) {
+                priceH2L = JSON.parse(e);
+                // priceH2L.sort((a, b) => parseFloat(b.ProductPrice) - parseFloat(a.ProductPrice));
+                priceH2L.sort(function (a, b) {
+                    return a.productPrice - b.productPrice;
+
+                })
+                var mini = document.getElementById('inputMi').value;
+                var max = document.getElementById('inputMa').value;
+
+                $.each(priceH2L, (index, products) => {
+                    if (products.productCatalog == "家電") {
+                        if (products.productPrice >= mini && products.productPrice <= max) {
+                            $('#test123').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                         <div class="item-inner">
                                             <div class="item-img">
                                                 <div class="item-img-info"><a href="#" title="Lorem ipsum dolor"
@@ -1436,25 +1551,25 @@
                                             </div>
                                         </div>
                                     </li> `)
-                                   
-                                }          
-                }
-           
-                                });
-        });
+
+                        }
+                    }
+
+                });
+            });
 
 
 
 
 
-    }
+        }
 
-</script>
+    </script>
 
-<script>
-    
+    <script>
 
-    
+
+
 // $("#editclick").click( function() {
 //   // this will fire when you click edit
 //   // hide the view button here and upon submit, show it again
@@ -1462,13 +1577,13 @@
 // });
 
 
-   
-    
 
-</script>
-   
-    
-   
+
+
+    </script>
+
+
+
 </body>
 
 </html>
