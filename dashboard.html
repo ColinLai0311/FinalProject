@@ -448,11 +448,11 @@
     <div class="main-container col2-right-layout">
       <div class="main container">
         <div class="row">
-          <section >
+          <section>
             <div class="col-main">
-              <div class="dashboard" >
+              <div class="dashboard">
                 <div class="welcome-msg" id="helloName">
-                  
+
                 </div>
                 <div class="recent-orders">
                   <div class="title-buttons"><strong>最近訂單</strong><a id="oldOder">&nbsp;</a></div>
@@ -462,6 +462,7 @@
                         <tr class="first last">
                           <th>訂單編號 #</th>
                           <th>訂單建立日期</th>
+                          <th>付款方式</th>
                           <th>到貨超商</th>
                           <th>宅配地址</th>
                           <th><span class="nobr">訂單總額</span></th>
@@ -488,7 +489,7 @@
                           <td class="a-center last"><span class="nobr"><a href="#">View Order</a><span
                                 class="separator">|</span><a href="#">Reorder</a></span></td>
                         </tr> -->
-                        
+
                       </tbody>
                     </table>
                   </div>
@@ -501,12 +502,12 @@
                     <div class="col-1">
                       <h5>會員 資訊</h5><a href="#">編輯</a>
                       <div id="memberinformation">
-                      <!-- <p>John Doe<br> jone-doe@example.com<br><a href="#">Change Password</a></p> -->
+                        <!-- <p>John Doe<br> jone-doe@example.com<br><a href="#">Change Password</a></p> -->
 
                       </div>
                     </div>
                     <div class="col-2">
-                     
+
                     </div>
                   </div>
                   <div class="col2-set">
@@ -518,17 +519,17 @@
                           href="#">Edit Address</a></address> -->
 
                       </div>
-                      
+
                     </div>
                     <div class="col-2">
-                     
+
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-          
+
         </div>
       </div>
     </div>
@@ -932,7 +933,8 @@
         <li><a title="Login" href="login.html"><span>Login</span></a></li>
       </ul>
     </div>
-  </div><!-- JavaScript -->
+  </div>
+  <!-- JavaScript -->
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/revslider.js"></script>
@@ -941,68 +943,84 @@
   <script src="js/jquery.mobile-menu.min.js"></script>
   <script>
     
-      $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/OrderServlet?odaction=Select", function (e) {
-      
-        Orders = JSON.parse(e);
-        $.each(Orders, (index, products)=>{
+    //會員資料
 
-          var status=products.狀態;
-          switch(status){
-              case '01':status="成立";break;
-              case '02':status="已付款";break;
-              case '03':status="已出貨";break;
-              case '031':status="未付款已出貨";break;
-              case '04':status="取消";break;
-              case '05':status="完成交付";break;
-              case '06':status="退貨";break;
-          }
-          console.log(typeof status)
-          if(products.會員編號=="4"){
-          $('#naka').append(` <tr >
-                          <td>${products.訂單編號}</td>
-                          <td>${products.訂單建立日期}</td>
-                          <td>${products.到貨超商}</td>
-                          <td>${products.宅配地址}</td>
-                          <td><span class="price">$1,397.99</span></td>
-                          <td><em>${status}</em></td>
-                          <td class="a-center last"><span class="nobr"></td>
-                        </tr>`)
-                      }
-             
+    var settings = {
+      url: "http://localhost:8081/loginJson",
+      "method": "POST",
+      "timeout": 0,
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic PEJhc2ljIEF1dGggVXNlcm5hbWU+OjxCYXNpYyBBdXRoIFBhc3N3b3JkPg==",
+        // "Cookie": "JSESSIONID=44181EE50D32AD3901CD3717EF56637D"
+      },
+      "data": JSON.stringify({
+        "memberAccouunt": "banana123",
+        "memberPassword": "qazwsx123"
+      }),
+    };
+    $.ajax(settings).done(function (e) {
+      console.log(e);
+
+      Names = JSON.parse(JSON.stringify(e));
+      console.log("MID="+Names.memberId)
 
 
-        })
-      
-        
-
-            
-      
-      })
-
-    
-   
-      
-
-
-  </script>
-  <script>
-      $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/MemberServlet?memberAction=SelectAll&memberId=4", function (e) {
-        Names = JSON.parse(e);
-        $.each(Names, (index, products)=>{
-          console.log("..."+products.memberFirstname)
-          $('#helloName').append(`<strong>Hello,<h2> ${products.memberFirstname} ${products.memberLastname}</h2> </strong>`)
-          $('#memberinformation').append(` <p> 姓名: ${products.memberFirstname} ${products.memberLastname}<br> 信箱: ${products.memberEmail}<br><a href="#">更換 密碼</a></p>
+      $('#helloName').append(`<strong>你好,<h2> ${Names.memberFirstname} ${Names.memberLastname}</h2> </strong>`)
+      $('#memberinformation').append(` <p> 姓名: ${Names.memberFirstname} ${Names.memberLastname}<br> 信箱: ${Names.memberEmail}<br></p>
 `)
-          $('#memberAdress').append(` <address>姓名: ${products.memberFirstname} ${products.memberLastname}<br> 地址: ${products.memberAddr}<br> 電話: ${products.memberTel} <br><a
-                          href="#">編輯 地址</a></address>`)
+      $('#memberAdress').append(` <address>姓名: ${Names.memberFirstname} ${Names.memberLastname}<br> 地址: ${Names.memberAddr}<br> 電話: ${Names.memberTel} <br></address>`)
+      //以下開始填入訂單資訊
+      var settings = {
+      "url": "http://localhost:8081/api/orders",
+      "method": "POST",
+      "timeout": 0,
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "data": JSON.stringify({
+        "orderId": "",
+        "status": "",
+        "memberId": Names.memberId
+      }),
+    };
+    $.ajax(settings).done(function (e) {
+      Orders = JSON.parse(e);
+      console.log(Orders)
+      $.each(Orders, (index, products) => {
+        var m = Math.random() * 10000 + 200
+        var radom = Math.floor(m);
+        var status = products.狀態;
+        switch (status) {
+          case '01': status = "成立"; break;
+          case '02': status = "已付款"; break;
+          case '03': status = "已出貨"; break;
+          case '031': status = "未付款已出貨"; break;
+          case '04': status = "取消"; break;
+          case '05': status = "完成交付"; break;
+          case '06': status = "退貨"; break;
+        }
+        console.log(typeof status)
+        //   if(products.會員編號==n){
+        $('#naka').append(` <tr >
+                <td>${products.訂單編號}</td>
+                <td>${products.訂單建立日期}</td>
+                <td>${products.付款方式}</td>
+                <td>${products.到貨超商}</td>
+                <td>${products.宅配地址}</td>
+                <td><span class="price">$${radom}</span></td>
+                <td><em>${status}</em></td>
+                <td class="a-center last"><span class="nobr"></td>
+              </tr>`)
+      })
+    });
+    //填入訂單資訊完畢
+    })
+  
 
 
-
-         
-
-              })
-            })
   </script>
+
 
 
 

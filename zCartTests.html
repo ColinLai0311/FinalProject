@@ -1204,9 +1204,9 @@
             ProductName: "Lorem ipsum dolor",
             ProductPrice: "1111",
         }];
-        $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/ProductServlet?pdaction=Select1", function (e) {
+        $.get("http://localhost:8081/api/products", function (e) {
             bestSaleList = JSON.parse(e);
-            console.log(typeof e);
+            console.log(bestSaleList);
             var count = 1;
             $.each(bestSaleList, (index, products) => {
 
@@ -1263,84 +1263,85 @@
             });
         });
 
-        var all = 0;
-        var count = 0;
-        var suji = 1;
-        var n=1;
-        function show(index) {
+        // var all = 0;
+        // var count = 0;
+        // var suji = 1;
+        // var n=1;
+        // function show(index) {
 
 
-            var totalPriceS = this.bestSaleList[index].productPrice;
-            var totalPriceI = parseInt(totalPriceS);
+        //     var totalPriceS = this.bestSaleList[index].productPrice;
+        //     var totalPriceI = parseInt(totalPriceS);
            
-            console.log( n)
-            all += totalPriceI;
-            count++;
+        //     console.log( n)
+        //     all += totalPriceI;
+        //     count++;
 
 
-            $("#naka").append(` <ul class="mini-products-list" id="cart-sidebar" >
-                                               <li class="item">
-                                                   <div class="item-inner"><a class="product-image"
-                                                           title="Lorem ipsum dolor" href="#l"><img
-                                                               alt="Lorem ipsum dolor"
-                                                               src="${this.bestSaleList[index].productImg1}"></a>
-                                                       <div class="product-details">
-                                                           <div class="access"><a class="btn-remove1"
-                                                                   title="Remove This Item" href="#">Remove</a><a
-                                                                   class="btn-edit" title="Edit item" href="#"><i
-                                                                       class="icon-pencil"></i><span
-                                                                       class="hidden">Edit item</span></a></div>
-                                                           <p class="product-name"><a href="#">${this.bestSaleList[index].productName}</a>
-                                                           </p><div class="p-num1">
-                                                            <div class="quantity-form">
-                                                                <a href="javascript:;" class="decrement">-</a>
-                                                                    <input type="text" class="itxt" value="1">
-                                                                    <a href="javascript:;" class="increment">+</a>
-                                                                        </div>
-                                                                        </div> <span class="price">$${this.bestSaleList[index].productPrice}</span>
-                                                       </div>
-                                                   </div>
-                                               </li>
+        //     $("#naka").append(` <ul class="mini-products-list" id="cart-sidebar" >
+        //                                        <li class="item">
+        //                                            <div class="item-inner"><a class="product-image"
+        //                                                    title="Lorem ipsum dolor" href="#l"><img
+        //                                                        alt="Lorem ipsum dolor"
+        //                                                        src="${this.bestSaleList[index].productImg1}"></a>
+        //                                                <div class="product-details">
+        //                                                    <div class="access"><a class="btn-remove1"
+        //                                                            title="Remove This Item" href="#">Remove</a><a
+        //                                                            class="btn-edit" title="Edit item" href="#"><i
+        //                                                                class="icon-pencil"></i><span
+        //                                                                class="hidden">Edit item</span></a></div>
+        //                                                    <p class="product-name"><a href="#">${this.bestSaleList[index].productName}</a>
+        //                                                    </p><div class="p-num1">
+        //                                                     <div class="quantity-form">
+        //                                                         <a href="javascript:;" class="decrement">-</a>
+        //                                                             <input type="text" class="itxt" value="1">
+        //                                                             <a href="javascript:;" class="increment">+</a>
+        //                                                                 </div>
+        //                                                                 </div> <span class="price">$${totalPriceI*n}</span>
+        //                                                </div>
+        //                                            </div>
+        //                                        </li>
                                               
-                                           </ul>
-                                        `)
+        //                                    </ul>
+        //                                 `)
 
 
-            $('#totalPrice').html("$" + all);
-            $('.totalCount').html(count);
+        //     $('#totalPrice').html("$" + all);
+
+        //     $('.totalCount').html(count);
 
 
 
-            $(".increment").click(function () {
+        //     $(".increment").click(function () {
                 
-                //得到當前兄弟文字框的值
-                n = $(this).siblings(".itxt").val();
-                n++;
-                $(this).siblings(".itxt").val(n);
-                console.log( n)
-                return n;
+        //         //得到當前兄弟文字框的值
+        //         n = $(this).siblings(".itxt").val();
+        //         n++;
+        //         $(this).siblings(".itxt").val(n);
+        //         console.log( n)
+        //         return n;
 
-            })
-            $(".decrement").click(function () {
-                //得到當前兄弟文字框的值
-                n = $(this).siblings(".itxt").val();
-                //當文字框的值減到1時就不再執行n--及後面的程式碼
-                if (n == 1) {
-                    return false;
-                }
-                n--;
-                $(this).siblings(".itxt").val(n);
-                return n;
-            })
-
-
+        //     })
+        //     $(".decrement").click(function () {
+        //         //得到當前兄弟文字框的值
+        //         n = $(this).siblings(".itxt").val();
+        //         //當文字框的值減到1時就不再執行n--及後面的程式碼
+        //         if (n == 1) {
+        //             return false;
+        //         }
+        //         n--;
+        //         $(this).siblings(".itxt").val(n);
+        //         return n;
+        //     })
 
 
 
 
 
 
-        }
+
+
+       // }
 
 
 
@@ -1356,7 +1357,7 @@
         function priceH2L() {
             $('#test123').empty();
             // location.reload();
-            $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/ProductServlet?pdaction=Select1", function (e) {
+            $.get("http://localhost:8081/api/products/:id", function (e) {
                 priceH2L = JSON.parse(e);
                 // priceH2L.sort((a, b) => parseFloat(b.ProductPrice) - parseFloat(a.ProductPrice));
                 priceH2L.sort(function (a, b) {
@@ -1423,7 +1424,7 @@
         function priceL2H() {
             $('#test123').empty();
             // location.reload();
-            $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/ProductServlet?pdaction=Select1", function (e) {
+            $.get("http://localhost:8081/api/products/:id", function (e) {
                 priceH2L = JSON.parse(e);
                 // priceH2L.sort((a, b) => parseFloat(b.ProductPrice) - parseFloat(a.ProductPrice));
                 priceH2L.sort(function (a, b) {
@@ -1497,7 +1498,7 @@
         function doText() {
             $('#test123').empty();
             // location.reload();
-            $.get("http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/ProductServlet?pdaction=Select1", function (e) {
+            $.get("http://localhost:8081/api/products/:id", function (e) {
                 priceH2L = JSON.parse(e);
                 // priceH2L.sort((a, b) => parseFloat(b.ProductPrice) - parseFloat(a.ProductPrice));
                 priceH2L.sort(function (a, b) {
@@ -1570,11 +1571,7 @@
 
 
 
-// $("#editclick").click( function() {
-//   // this will fire when you click edit
-//   // hide the view button here and upon submit, show it again
-//   // like $("#viewclick").hide() or $("#viewclick").fadeOut()
-// });
+
 
 
 

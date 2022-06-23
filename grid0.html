@@ -207,8 +207,8 @@
                         </div>
                         <!-- 右邊上內頁 -->
                         <article class="col-main">
-                            <h2 class="page-heading"><span class="page-heading-title">飾 品 </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h2 class="page-heading"><span class="page-heading-title">全部商品 </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                  <span id="sortbySize">篩 選:</span>
                                   
                             </h2>
@@ -250,7 +250,7 @@
                                 <div class="block-title">目錄</div>
                                 <div class="box-content box-category">
                                     <ul>
-                                        <li class="mega-menu"><a  href="grid1.html">飾品</a></li>
+                                        <li class="mega-menu"><a  href="grid.html">飾品</a></li>
                                         <li class="mega-menu"><a  href="grid2.html">質感燈飾</a></li>
                                         <li class="mega-menu"><a  href="grid.html">服飾</a></li>
                                         <li class="mega-menu"><a  href="grid.html">日常用品</a></li>
@@ -566,7 +566,7 @@
             console.log(typeof e);
             $.each(bestSaleList, (index, products) => { 
                 console.log(index);
-                if(products.productCatalog=="配件"){
+                
                     $('#test1').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                         <div class="item-inner">
                                             <div class="item-img">
@@ -608,7 +608,7 @@
                                             </div>
                                         </div>
                                     </li> `)
-                }
+                
            
                                 });
         });
@@ -639,7 +639,7 @@
             
             console.log(priceH2L);
              $.each(priceH2L, (index, products) => { 
-                if(products.productCatalog=="配件"){
+                
                   
                     $('#test1').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                         <div class="item-inner">
@@ -683,7 +683,7 @@
                                         </div>
                                     </li> `)
                                
-                }
+                
            
                                 });
         });
@@ -712,7 +712,7 @@
             
             console.log(priceH2L);
              $.each(priceH2L, (index, products) => { 
-                if(products.productCatalog=="配件"){
+                
                   
                     $('#test1').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                         <div class="item-inner">
@@ -756,7 +756,7 @@
                                         </div>
                                     </li> `)
                                
-                }
+                
            
                                 });
         });
@@ -793,7 +793,7 @@
             var max=document.getElementById('inputMa').value;
             
              $.each(priceH2L, (index, products) => { 
-                if(products.productCatalog=="配件"){
+               
                     if(products.productPrice>=mini && products.productPrice<=max){
                     $('#test1').append(` <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                         <div class="item-inner">
@@ -837,7 +837,7 @@
                                         </div>
                                     </li> `)
                                 }          
-                }
+                
            
                                 });
         });
